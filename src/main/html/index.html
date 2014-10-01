@@ -57,17 +57,28 @@
       });
 
       function addApiKeyAuthorization() {
-        var key = $('#input_apiKey')[0].value;
-        log("key: " + key);
-        if(key && key.trim() != "") {
-            log("added key " + key);
-            window.authorizations.add("api_key", new ApiKeyAuthorization("api_key", key, "query"));
+        var userId = $('#input_userId')[0].value;
+        log("input_userId: " + userId);
+        if(userId && userId.trim() != "") {
+            log("added userId" + userId);
+            window.authorizations.add("api_key", new ApiKeyAuthorization("userId", userId, "header"));
         }
+
+          var sessionId = $('#input_sessionId')[0].value;
+          log("input_sessionId: " + sessionId);
+          if (sessionId && sessionId.trim() != "") {
+              log("added sessionId" + sessionId);
+              window.authorizations.add("api_key", new ApiKeyAuthorization("sessionId", sessionId, "header"));
+          }
       }
 
-      $('#input_apiKey').change(function() {
-        addApiKeyAuthorization();
-      });
+        $('#input_userId').change(function () {
+            addApiKeyAuthorization();
+        });
+
+        $('#input_sessionId').change(function () {
+            addApiKeyAuthorization();
+        });
 
       // if you have an apiKey you would like to pre-populate on the page for demonstration purposes...
       /*
@@ -93,7 +104,8 @@
         <!--<img id="show-wordnik-dev-icon" src="images/wordnik_api.png" title="Show Wordnik Developer Apis">-->
       <!--</div>-->
       <div class='input'><input placeholder="http://example.com/api" id="input_baseUrl" name="baseUrl" type="text"/></div>
-      <div class='input'><input placeholder="api_key" id="input_apiKey" name="apiKey" type="text"/></div>
+      <div class='input'><input placeholder="userId" id="input_userId" name="userId" type="text"/></div>
+      <div class='input'><input placeholder="sessionId" id="input_sessionId" name="sessionId" type="text"/></div>
       <div class='input'><a id="explore" href="#">Explore</a></div>
     </form>
   </div>

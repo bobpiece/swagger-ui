@@ -1187,11 +1187,20 @@
   float: left;
   margin: 0 10px 0 0;
 }
-.swagger-section #header form#api_selector .input input#input_apiKey {
-  width: 200px;
+.swagger-section #header form#api_selector .input input#input_userId {
+  width: 125px;
+  color: #4776E8;
+
 }
+
+.swagger-section #header form#api_selector .input input#input_sessionId {
+    width: 125px;
+    color: #4776E8;
+}
+
 .swagger-section #header form#api_selector .input input#input_baseUrl {
-  width: 450px;
+  width: 375px;
+  color: #4776E8;
 }
 .swagger-section #header form#api_selector .input a#explore {
   display: block;
